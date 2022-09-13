@@ -345,7 +345,7 @@
                 
                 <!-- Members Datagrid -->
                 <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle2}" 
-                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle3}" 
+                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}" 
                           RowStyle="{DynamicResource DataGridRowStyle3}"
                           Grid.Row="5"
                           x:Name="membersDataGrid">
@@ -388,11 +388,13 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button>
-                                            <Icon:PackIconMaterial Kind="PencilOutline" />
+                                        <Button Style="{StaticResource gridEditButton}">
+                                            <Icon:PackIconMaterial Kind="PencilOutline" 
+                                                                   Style="{StaticResource gridButtonIcon}"/>
                                         </Button>
-                                        <Button>
-                                            <Icon:PackIconMaterial Kind="PencilOutline" />
+                                        <Button Style="{StaticResource gridRemoveButton}">
+                                            <Icon:PackIconMaterial Kind="DeleteOutline" 
+                                                                   Style="{StaticResource gridButtonIcon}"/>
                                         </Button>
                                     </StackPanel>
                                 </DataTemplate>
