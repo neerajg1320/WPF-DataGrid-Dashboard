@@ -342,7 +342,8 @@
                                Text="Search in Members ..."/>
                     <TextBox x:Name="txtFilter" Style="{StaticResource textboxFilter}"/>
                 </Grid>
-                
+
+                <CheckBox Style="{DynamicResource CheckBoxStyle1}" Grid.Row="6"/>
                 <!-- Members Datagrid -->
                 <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle2}" 
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}" 
@@ -353,38 +354,39 @@
                         <DataGridCheckBoxColumn CanUserResize="False" Width="auto">
                             <DataGridCheckBoxColumn.HeaderTemplate>
                                 <DataTemplate>
-                                    <CheckBox />
+                                    <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
                                 </DataTemplate>
                             </DataGridCheckBoxColumn.HeaderTemplate>
                         </DataGridCheckBoxColumn>
 
                         <DataGridTextColumn Header="#" IsReadOnly="True"
-                                             CanUserResize="False" Width="auto"/>
+                                             CanUserResize="False" Width="auto"
+                                            Binding="{Binding Number}"/>
                         <DataGridTemplateColumn Header="Member" IsReadOnly="True" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
                                         <Border Width="25" Height="25" CornerRadius="50"
-                                                Margin="0 0 10 0" Background="Red">
-                                            <TextBlock Text="..." VerticalAlignment="Center"
+                                                Margin="0 0 10 0" Background="{Binding BgColor}">
+                                            <TextBlock Text="{Binding Character}" VerticalAlignment="Center"
                                                        HorizontalAlignment="Center"
                                                        Foreground="White"
                                                        Margin="0 0 0 1"/>
                                         </Border>
-                                        <TextBlock Text="..." VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         
                         <DataGridTextColumn Header="Position" IsReadOnly="True"
-                                            Width="*"/>
+                                            Width="*" Binding="{Binding Position}"/>
                         <DataGridTextColumn Header="Email Address" IsReadOnly="True"
-                                            Width="*"/>
+                                            Width="*" Binding="{Binding Email}"/>
                         <DataGridTextColumn Header="Phone Number" IsReadOnly="True"
-                                            Width="*"/>
+                                            Width="*" Binding="{Binding Phone}"/>
 
-                        <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -392,7 +394,7 @@
                                             <Icon:PackIconMaterial Kind="PencilOutline" 
                                                                    Style="{StaticResource gridButtonIcon}"/>
                                         </Button>
-                                        <Button Style="{StaticResource gridRemoveButton}">
+                                        <Button Style="{StaticResource gridRemoveButton}" Margin="5 0 0 0">
                                             <Icon:PackIconMaterial Kind="DeleteOutline" 
                                                                    Style="{StaticResource gridButtonIcon}"/>
                                         </Button>
